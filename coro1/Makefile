@@ -25,9 +25,6 @@ OBJS=$(addprefix build/,$(SRCS:.cpp=.o))
 all: $(EXE)
 
 build/%.o: %.cpp
-	$(info COMPILER=$(COMPILER))
-	$(info HDR=$(HDR))
-	$(info USING=$(USING))
 	$(call COMPILE_IT, -O0 -g --std=c++20 -Wall -Werror -pthread -c -o $@ $< -DCORO_HDR=$(HDR) -DCORO_USING=$(USING))
 
 $(EXE): $(OBJS)
