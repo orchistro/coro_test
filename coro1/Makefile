@@ -31,7 +31,7 @@ build/%.o: %.cpp
 	$(call COMPILE_IT, -O0 -g --std=c++20 -Wall -Werror -pthread -c -o $@ $< -DCORO_HDR=$(HDR) -DCORO_USING=$(USING))
 
 $(EXE): $(OBJS)
-	gcc -lstdc++ -pthread -o $(STDLIBOPT) -o $@ $<
+	gcc -lstdc++ -pthread $(STDLIBOPT) -o $@ $<
 
 clean:
 	rm -rf build
